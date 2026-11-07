@@ -1,0 +1,8 @@
+Source: https://github.com/DietrichGebert/ponytail
+Commit: 96608e078b2d5ea607c5c3b8b5a54d1c1fba6846
+Commit date: 2026-10-29
+Upstream path: skills/ponytail-debt/SKILL.md
+Package version in that commit: 5.3.3 (@dietrichgebert/ponytail)
+License: MIT (LICENSE in this directory; copyright 2026 Dietrich Gebert)
+Installed here: skill markdown only.
+Not installed: Cursor hooks, always-on rule, or any runtime.

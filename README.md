@@ -39,3 +39,7 @@ The `design` skill does not include its logo, icon, or CIP image-generation scri
 ### zhaoxuya520/reverse-skill
 
 Nothing from this repository was installed. The pack is offensive-security and CTF guidance, and its bootstrap can install tools and write MCP config. The skipped skill names are listed in SOURCES.md.
+
+## Additional Cursor skills
+
+Ponytail, headroom, and graphify skill files are under [`.cursor/skills/`](.cursor/skills/). What is installed versus left uninstalled is in [docs/skills-setup.md](docs/skills-setup.md).
