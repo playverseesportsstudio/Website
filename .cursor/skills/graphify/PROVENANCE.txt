@@ -1,0 +1,11 @@
+Source: https://github.com/Graphify-Labs/graphify
+Commit: 16218bfc80d4ca2799734d045039f7ed1a5fa9fb
+Tag: v0.9.103
+Commit date: 2026-11-05
+Package version: graphifyy 0.9.103
+Upstream skill body: graphify/skill-agents.md copied to SKILL.md (the file `graphify install --project --platform agents` installs)
+Upstream references: graphify/skills/agents/references/ copied beside SKILL.md
+License: Apache-2.0 (LICENSE, LICENSE-MIT, NOTICE; copyright 2026 Safi Shamsi and the Graphify contributors)
+Installed here: skill markdown, on-demand references, and license files.
+Not installed: the graphifyy CLI or Python package, .cursor/rules/graphify.mdc (always-on Cursor rule), AGENTS.md injection, git hooks, MCP server, Neo4j/FalkorDB, or any graphify-out/ graph.
+The skill is not operational until graphifyy is installed (Python 3.12+, uv or pipx). This setup did not install it. Invoking the skill instructs an agent to install that package and build a graph; do not do that under the current no-graph, no-large-runtime constraint.

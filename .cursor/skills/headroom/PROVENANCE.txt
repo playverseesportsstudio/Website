@@ -1,0 +1,10 @@
+Source: https://github.com/headroomlabs-ai/headroom
+Commit: 12864fc8f01a1ca6c58440eccef0dabdd3e595b8
+Commit date: 2026-11-06
+Upstream path: skills/headroom/SKILL.md
+Same bytes as plugins/headroom-skill/skills/headroom/SKILL.md
+Plugin manifest version in that commit: 0.43.1
+License: Apache-2.0 (LICENSE and NOTICE in this directory; copyright 2025 Headroom Contributors)
+Installed here: skill markdown and upstream license/notice only.
+Not installed: headroom-ai package, proxy, agent wrap, MCP, Docker, or any service.
+Use-time prerequisite recorded in SKILL.md: pip install headroom-ai. Set HEADROOM_OFFLINE=1 to block the package update check, model and pricing downloads, and beacon. That package was not installed in this setup.
