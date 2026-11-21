@@ -46,7 +46,9 @@ a { color: inherit; }
 
 .wrap { max-width: 1080px; margin: auto; padding: 0 20px; }
 
-section.k { padding: 56px 0; }
+section.k { padding: 120px 0 0; }
+
+section.k.cta { padding-bottom: 80px; }
 
 .label {
   font: 600 12px/1 var(--head);
@@ -413,9 +415,9 @@ h3, .h3 { font: 600 22px / 1.25 var(--head); }
 .games-intro {
   width: 100%;
   max-width: 72ch;
-  margin: 0 auto 24px;
+  margin: 0 0 24px;
   color: var(--muted);
-  text-align: center;
+  text-align: left;
 }
 
 .hero-art { width: 100%; height: auto; display: block; }
@@ -438,11 +440,10 @@ h3, .h3 { font: 600 22px / 1.25 var(--head); }
 
 .gta-copy .row { margin-top: 16px; }
 
-#games .wrap { text-align: center; }
 .tabs-box {
   display: inline-flex;
   gap: 4px;
-  margin: 20px auto 24px;
+  margin: 20px 0 24px;
   padding: 4px;
   background: var(--surface);
   border: 1px solid var(--border);
@@ -478,15 +479,20 @@ h3, .h3 { font: 600 22px / 1.25 var(--head); }
 
 .games .game-name .tag { margin-left: 8px; vertical-align: 1px; }
 
-#games h2,
-#setup,
-#prices > .wrap > h2,
-#reviews > .wrap > h2,
-#location > .wrap > h2 { text-align: center; }
-
-#setup .setup-copy { margin-inline: auto; }
-
-.setup-copy { max-width: 65ch; }
+.setup-copy { max-width: 65ch; margin-bottom: 24px; }
+.gear { grid-template-columns: 1fr; text-align: left; }
+.gear .pad { text-align: center; }
+.gear h3 { margin-bottom: 8px; }
+.gear .small { margin-inline: auto; }
+.gear-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 12px;
+  color: var(--accent);
+}
 
 .parties,
 .reviews { grid-template-columns: 1fr; }
@@ -502,7 +508,7 @@ h3, .h3 { font: 600 22px / 1.25 var(--head); }
   text-align: left;
 }
 
-.group-title { margin: 28px 0 16px; text-align: center; }
+.group-title { margin: 28px 0 16px; }
 
 .grid + .group-title { margin-top: 60px; }
 
@@ -560,15 +566,10 @@ blockquote { margin: 0; }
 .location-card .btn { align-self: flex-start; margin-top: 0; }
 .hours { list-style: none; display: grid; gap: 4px; color: var(--muted); font-size: 14px; }
 #location .loc-line {
-  text-align: center;
   max-width: none;
   width: 100%;
-  margin: 0 auto 16px;
-  white-space: nowrap;
-  overflow-x: auto;
+  margin: 0 0 16px;
 }
-#prices .wrap { text-align: center; }
-#prices .intro-line { margin-inline: auto; }
 #prices .card { text-align: left; }
 
 .faq { width: 100%; }
@@ -608,7 +609,7 @@ blockquote { margin: 0; }
 
   .facts { grid-template-columns: 1fr 1fr; }
   .grid.prices .card { flex: 0 1 calc(20% - 13px); max-width: none; }
-  .parties { grid-template-columns: repeat(3, 1fr); }
+  .parties, .gear { grid-template-columns: repeat(3, 1fr); }
   .reviews { grid-template-columns: 1fr 1fr; }
   .location-card { grid-template-columns: 1.15fr .85fr; min-height: 320px; }
   .games .card { flex: 0 1 calc(20% - 13px); max-width: none; }
