@@ -1,0 +1,169 @@
+:root {
+  --p: 0;
+  --road: 0px;
+  --car-h: 36px;
+}
+html { overflow-x: hidden; }
+body { padding-left: 0; }
+img[data-src]:not([src]) { display: none !important; }
+.road-v, .car-top, .road-h, .car-side { display: none; }
+.road-v {
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 100vh;
+  background: transparent;
+  pointer-events: none;
+}
+.car { pointer-events: none; }
+.car-top {
+  position: fixed;
+  z-index: 5;
+  left: 2px;
+  top: 0;
+  width: 20px;
+  height: var(--car-h);
+  transform: translateY(calc(var(--p) * (100vh - var(--car-h))));
+}
+.car-top img { width: 20px; height: 36px; object-fit: contain; display: block; transform: rotate(180deg); }
+.car-bubble {
+  pointer-events: auto;
+  position: absolute;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  background: #fff;
+  color: #141418;
+  border: 2px solid #0A0A0C;
+  border-radius: 10px;
+  box-shadow: 3px 3px 0 #FF4F9A;
+  font: 400 14px/1 Anton, Impact, sans-serif;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  transform-origin: center bottom;
+}
+.car-bubble:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.car-bubble::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+.bubble-float { display: block; animation: bubble-float 2s ease-in-out infinite; }
+@keyframes bubble-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+.car-top .car-bubble {
+  left: 26px;
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .6s ease, visibility .6s ease, transform .2s ease;
+}
+.car-top .car-bubble::after {
+  left: -8px;
+  top: 50%;
+  margin-top: -6px;
+  border-width: 6px 8px 6px 0;
+  border-color: transparent #fff transparent transparent;
+  filter: drop-shadow(-2px 0 0 #0A0A0C);
+}
+.is-scrolling .car-top .car-bubble,
+.parked .car-top .car-bubble {
+  opacity: 1;
+  visibility: visible;
+}
+.is-scrolling .car-top .car-bubble { transform: translateY(-50%) rotate(3deg); }
+.parked .car-top .car-bubble { animation: bubble-pop-top .45s ease 1; }
+@keyframes bubble-pop-top {
+  0%, 100% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.1); }
+}
+.park-sign { display: none; }
+
+@media (min-width: 768px) {
+  :root { --road: 0px; }
+  body { padding-left: 0; padding-bottom: 70px; }
+  .road-v, .car-top { display: none; }
+  .road-h, .car-side { display: block; }
+  .road-h {
+    position: fixed;
+    z-index: 4;
+    left: 0; right: 0; bottom: 0;
+    height: 70px;
+    background: transparent;
+    pointer-events: none;
+  }
+  .road-h .dash {
+    position: absolute; left: 0; right: 0; top: 33px;
+    border-top: 3px dashed rgba(244, 244, 245, .5);
+  }
+  .car-side {
+    position: fixed;
+    z-index: 5;
+    left: 0;
+    bottom: 2px;
+    width: 160px;
+    height: 65px;
+    transform: translateX(calc(var(--p) * (100vw - 160px)));
+  }
+  .car-side .car-bubble {
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%);
+  }
+  .car-side .car-bubble::after {
+    left: 50%;
+    bottom: -8px;
+    margin-left: -6px;
+    border-width: 8px 6px 0 6px;
+    border-color: #fff transparent transparent transparent;
+    filter: drop-shadow(0 2px 0 #0A0A0C);
+  }
+  .is-scrolling .car-side .car-bubble { transform: translateX(-50%) rotate(-3deg); }
+  .parked .car-side .car-bubble { animation: bubble-pop-side .45s ease 1; }
+  @keyframes bubble-pop-side {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+  }
+  .car-bob img { width: 160px; height: 65px; object-fit: contain; display: block; }
+  .is-scrolling .car-bob { animation: bob .4s ease-in-out infinite; }
+  @keyframes bob { 50% { transform: translateY(-1px); } }
+  .parked .park-sign {
+    display: block;
+    position: absolute;
+    right: -28px;
+    top: -6px;
+    width: 22px; height: 22px;
+    border-radius: 3px;
+    background: var(--accent);
+    color: #fff;
+    font: 700 14px/22px var(--body);
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --p: 1; }
+  .car-bubble, .bubble-float, .car-bob {
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) and (min-width: 768px) {
+  .car-side, .car-bob { transform: none !important; }
+  .car-side { left: auto; right: 24px; }
+}

@@ -15,7 +15,7 @@
   --body: Inter, system-ui, sans-serif;
   --p: 0;
   --night: 0;
-  --road: 32px;
+  --road: 0px;
   --car-h: 36px;
 }
 
@@ -57,8 +57,7 @@ p { margin: 0; }
 .sky-day, .sky-day img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .sky-night, .sky-navy, .sky-lights, .sky-stars { display: none; }
 
-.road-v, .car-top { display: block; }
-.road-h, .car-side, .palm { display: none; }
+.road-v, .car-top, .road-h, .car-side, .palm { display: none; }
 .road-v {
   position: fixed;
   z-index: 4;
